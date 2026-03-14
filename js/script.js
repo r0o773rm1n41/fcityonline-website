@@ -30,7 +30,20 @@ document.addEventListener("DOMContentLoaded", function () {
   loadComponent("header", headerPath, () => {
 
     const menuToggle = document.getElementById("mobile-menu");
+    // const navLinks = document.querySelector("nav ul");
     const navLinks = document.querySelector("nav ul");
+
+if(menuToggle && navLinks){
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+}
+
+document.querySelectorAll("nav ul li a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
+});    
 
     if (menuToggle) {
       menuToggle.addEventListener("click", () => {
